@@ -1,23 +1,23 @@
-function salvarCadastro(event){
-    event.prevent();
+function salvarCadastro(event) {
+    event.preventDefault(); // Corrigir a função para evitar o comportamento padrão
 
     const nome = document.getElementById('nome').value;
     const dataNascimento = document.getElementById('data-nascimento').value;
-    const telefone = docuemnt.getElementById('telefone').value;
+    const telefone = document.getElementById('telefone').value; // Corrigir erro de digitação
     const email = document.getElementById('email').value;
 
     const cadastro = {
-        nome: nome, 
+        nome: nome,
         dataNascimento: dataNascimento,
         telefone: telefone,
         email: email,
     };
 
     localStorage.setItem('cadastro', JSON.stringify(cadastro));
-    
-    alert('cadastro salvo com sucesso');
 
+    alert('Cadastro salvo com sucesso');
 }
+
 function carregarCadastro() {
     const cadastro = JSON.parse(localStorage.getItem('cadastro'));
     if (cadastro) {
